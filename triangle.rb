@@ -14,6 +14,16 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
+  # validation
+  if (a <= 0 || b <= 0 || c <= 0)
+    raise TriangleError
+  end
+  totalSideLengths = [a,b,c].sum
+  maxSideLength = [a,b,c].max
+  if (maxSideLength >= totalSideLengths-maxSideLength)
+    raise TriangleError
+  end
+  # should be legal triangle
   if (a == b && b == c)
     :equilateral
   elsif (a == b || a == c || b == c)
